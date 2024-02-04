@@ -1,7 +1,7 @@
 **SENG 637 - Software Testing, Reliability, and Quality**
->   **Assignment \#1**
->   **Introduction to Testing and Defect (Bug) Tracking**
->   Instructors: 
+>   **Assignment \#2**
+>   **Black Box Testing**  
+>   Instructor: 
 >   -   Somaye Modaberi (somayeh.modberi@ucalgary.ca)
 >   Department of Electrical and Software Engineering
 >   University of Calgary
@@ -123,9 +123,10 @@ To create a test suite containing a single unit test in JUnit, follow these step
 6.  Click _Finish_.
 
 7.  As a practice, write a simple test case for the getCentralValue() method.
-    See <img src="media/JunitTest.png" alt="JunitTest.png" width="360"/>
+    See below:
+    
+     <img src="media/JunitTest.png" alt="JunitTest.png" width="360"/>
 
-.
 
 ```java
 package org.jfree.data.test;
@@ -203,25 +204,38 @@ Note that some methods in DataUtilities use the interfaces Values2D and KeyedVal
 To get you started, include the following example (that follows jMock notation) in your DataUtilities test code: Note that you can use any mocking framework, but the example given here are in jMock.
 
 ```java
- @Test
-public void calculateColumnTotalForTwoValues() {
-    // setup
-    Mockery mockingContext = new Mockery();
-    final Values2D values = mockingContext.mock(Values2D.class);
-    mockingContext.checking(new Expectations() {
-        {
-            one(values).getRowCount();
+package org.jfree.data;
+
+import static org.junit.Assert.*;
+import org.jmock.Mockery;
+import org.jmock.Expectations;
+import org.junit.Test;
+
+public class DataUtilitiesTest {
+
+    @Test
+    public void calculateColumnTotalForTwoValues() {
+        // setup
+        Mockery mockingContext = new Mockery();
+        final Values2D values = mockingContext.mock(Values2D.class);
+
+        mockingContext.checking(new Expectations() {{
+            oneOf(values).getRowCount();
             will(returnValue(2));
-            one(values).getValue(0, 0);
+            oneOf(values).getValue(0, 0);
             will(returnValue(7.5));
-            one(values).getValue(1, 0);
+            oneOf(values).getValue(1, 0);
             will(returnValue(2.5));
-        }
-    });
-    // exercise	double result = DataUtilities.calculateColumnTotal(values, 0);
-    // verify
-    assertEquals(result, 10.0, .000000001d);
-    // tear-down: NONE in this test method
+        }});
+
+        // exercise
+        double result = DataUtilities.calculateColumnTotal(values, 0);
+
+        // verify
+        assertEquals(10.0, result, .000000001d);
+
+        // tear-down: NONE in this test method
+    }
 }
 
 ```
@@ -263,7 +277,7 @@ To be consistent, please use the template Word file [“seng438-a2-team_number.m
 | A detailed description of the testing strategy for unit testing and your test-case design approach, i.e., how you used the black-box test-case design techniques equivalence classes, and boundary value analysis. Also list the name of the test cases you have designed and identify which one covers which parts of the strategy (which partition, which class, etc.) Include a discussion about what you feel are the benefits and drawbacks about using mocking. | 25% |
 | A discussion on how the team work/effort was divided and managed. Any lessons learned from your teamwork on this lab?                                                                                                                                                                                                                                                                                                                                                 | 2%  |
 | Difficulties encountered, challenges overcome, and lessons learned from performing the lab                                                                                                                                                                                                                                                                                                                                                                           | 2%  |
-| Comments/feedback on the lab itself.                                                                                                                                                                                                                                                                                                                                                                                                                                   | 1%  |
+| Comments/feedback on the lab and lab document itself. (Did you find it a useful practice? Was it easy to follow?) Please try to keep comments and feedback constructive.                                                                                                                                                                                                                                                                                                                                                                                                                                   | 1%  |
 
 ## 4.2 Junit Test Suite (70%)
 
