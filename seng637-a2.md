@@ -61,7 +61,7 @@ This section provides the steps for completing the lab. It is important to note 
 
 Ensure that everyone understands the concepts in this section before moving on to the rest of the lab.
 
-1. If you haven’t done so already, extract the _JFreeChartv1.0.zip_ file from [seng438-a2-artifacts.zip](./seng438-a2-artifacts.zip).
+1. If you haven’t done so already, extract the _JFreeChartv1.0.zip_ file from [seng637-a2-artifacts.zip](./seng637-a2-artifacts.zip).
 
 ### 2.1.1 Create an Eclipse Project
 
@@ -270,7 +270,7 @@ The unit testing knowledge you gained in this lab can be scaled up to much large
 
 ## 4.1 Lab Report (30%)
 
-To be consistent, please use the template Word file [“seng438-a2-team_number.md”](seng438-a2-team_number.md) provided in the reopsitory.
+To be consistent, please use the template Word file [“seng637-a2-team_number.md”](seng637-a2-team_number.md) provided in the reopsitory.
 
 | Marking scheme                                                                                                                                                                                                                                                                                                                                                                                                                                                        |     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
